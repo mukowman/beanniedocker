@@ -10,18 +10,20 @@ RUN apt-get update \
  && echo 'Finished installing dependencies'
 
 # Copy package.json and package-lock.json
-COPY package*.json ./
+RUN git clone https://github.com/beanni/beanni.git
+#COPY package*.json ./
 
 # Install npm production packages 
-RUN npm install --production
+RUN npm install
+RUN npm run build
 
 COPY . /app
 
 ENV NODE_ENV production
-ENV PORT 3000
+#ENV PORT 3000
 
-EXPOSE 3000
+#EXPOSE 3000
 
 USER node
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "fetch"]
