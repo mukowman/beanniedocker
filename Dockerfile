@@ -10,7 +10,7 @@ RUN apt-get update \
  && echo 'Finished installing dependencies'
 
 # Copy package.json and package-lock.json
-RUN git clone https://github.com/beanni/beanni.git
+RUN git clone https://github.com/beanni/beanni.git /app
 #COPY package*.json ./
 
 # Install npm production packages 
